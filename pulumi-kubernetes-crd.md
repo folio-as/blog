@@ -8,6 +8,8 @@ or configure the Identity-Aware Proxy for a service via a BackendConfig.
 Pulumi lets you "implement" type-safe CRDs by extending a CustomResource. Here's our BackendConfig:
 
 ```ts
+// backend-config.ts
+
 import * as kubernetes from '@pulumi/kubernetes';
 import { CustomResourceOptions, Output } from '@pulumi/pulumi';
 
@@ -51,6 +53,8 @@ export class BackendConfig extends kubernetes.apiextensions.CustomResource {
 You can use this as you would any other Pulumi resource:
 
 ```ts
+import { BackendConfig } from './backend-config';
+
 // Assuming these resources are already created
 const monitoringNamespace = …;
 const polarisOauthclientCredentials = …;
